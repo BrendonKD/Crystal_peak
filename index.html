@@ -4,34 +4,78 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <meta name="description"
     content="Crystal Peak Igloos — a conceptual eco-luxury dome retreat in Pattipola, Sri Lanka." />
+
   <title>Crystal Peak Igloos | Pattipola, Sri Lanka</title>
+
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
   <link
     href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Manrope:wght@400;500;600;700&display=swap"
     rel="stylesheet" />
+
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+
+  <!-- Tailwind Custom Configuration -->
   <script>
     tailwind.config = {
-      theme: {extend: {colors: {peak: {night: '#07110d', forest: '#10291e', pine: '#183a2a', moss: '#55745b', gold: '#c6a45b', goldSoft: '#e1ca8a', mist: '#d9ded6', muted: '#96a49a'}}, fontFamily: {display: ['Cormorant Garamond', 'serif'], sans: ['Manrope', 'sans-serif']}, borderRadius: {'4xl': '2.5rem', '5xl': '3.25rem'}, boxShadow: {glass: '0 18px 70px rgba(0,0,0,.35)', gold: '0 14px 42px rgba(198,164,91,.20)'}}}
+      theme: {
+        extend: {
+          colors: {
+            peak: {
+              night: "#07110d",
+              forest: "#10291e",
+              pine: "#183a2a",
+              moss: "#55745b",
+              gold: "#c6a45b",
+              goldSoft: "#e1ca8a",
+              mist: "#d9ded6",
+              muted: "#96a49a"
+            }
+          },
+          fontFamily: {
+            display: ["Cormorant Garamond", "serif"],
+            sans: ["Manrope", "sans-serif"]
+          },
+          borderRadius: {
+            "4xl": "2.5rem",
+            "5xl": "3.25rem"
+          },
+          boxShadow: {
+            glass: "0 18px 70px rgba(0,0,0,.35)",
+            gold: "0 14px 42px rgba(198,164,91,.20)"
+          }
+        }
+      }
     };
   </script>
+
+  <!-- Your External CSS -->
   <link rel="stylesheet" href="index.css" />
 </head>
 
 <body>
   <!--
-    Required image files in your project:
+    REQUIRED IMAGE STRUCTURE
 
-    assets/logo.jpeg
-    assets/dome-resort.jpeg
-    assets/landscape.jpeg
-    assets/tea-table.jpeg
-    assets/misty-valley.jpeg
-    assets/Highland-Horizon.jpeg
+    assets/
+    ├── logo.jpeg
+    ├── dome-resort.jpeg
+    ├── landscape.jpeg
+    ├── tea-table.jpeg
+    ├── misty-valley.jpeg
+    └── Highland-Horizon.jpeg
   -->
 
   <!-- Navigation -->
@@ -68,15 +112,8 @@
         <button id="menuButton"
           class="liquid-glass flex h-10 w-10 items-center justify-center rounded-full text-white lg:hidden"
           type="button" aria-label="Open navigation" aria-expanded="false">
-          <svg id="menuOpenIcon" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-            stroke-width="1.7">
-            <path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round" />
-          </svg>
-
-          <svg id="menuCloseIcon" class="hidden h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-            stroke-width="1.7">
-            <path d="M6 6l12 12M18 6L6 18" stroke-linecap="round" />
-          </svg>
+          <i id="menuOpenIcon" class="fa-solid fa-bars text-sm"></i>
+          <i id="menuCloseIcon" class="fa-solid fa-xmark hidden text-lg"></i>
         </button>
       </div>
     </nav>
@@ -144,7 +181,6 @@
           <div class="mt-9 flex flex-wrap gap-3">
             <a href="#domes" class="button-gold px-6 py-3.5">
               <span>Explore the domes</span>
-              <span>↗</span>
             </a>
 
             <a href="#story" class="button-outline">
@@ -265,14 +301,12 @@
       </div>
     </section>
 
-    <!-- Tea & Table / Menu Highlights -->
+    <!-- Tea & Table -->
     <section id="tea" class="relative overflow-hidden bg-[#07110d] py-24 sm:py-32">
       <div class="absolute inset-0 bg-[radial-gradient(circle_at_15%_30%,rgba(198,164,91,.10),transparent_28%)]"></div>
 
       <div class="relative mx-auto max-w-7xl px-6 lg:px-10">
         <div class="grid items-start gap-14 lg:grid-cols-[.8fr_1.2fr]">
-
-          <!-- Left visual content -->
           <div class="reveal lg:sticky lg:top-32">
             <p class="text-[10px] font-semibold uppercase tracking-[.28em] text-[#e1ca8a]">
               The Grand Glass Restaurant Dome
@@ -325,7 +359,6 @@
             </div>
           </div>
 
-          <!-- Interactive menu -->
           <div class="reveal reveal-delay">
             <div class="mb-7 flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
               <div>
@@ -344,7 +377,6 @@
               </span>
             </div>
 
-            <!-- Menu category buttons -->
             <div class="mb-7 flex flex-wrap gap-2">
               <button type="button" class="menu-category-button active" data-menu-category="starters">
                 Starters
@@ -359,7 +391,6 @@
               </button>
             </div>
 
-            <!-- JavaScript fills this area -->
             <div id="menuPanel" class="menu-panel glass-dark rounded-[2rem] p-6 sm:rounded-[2.5rem] sm:p-9"></div>
 
             <div
@@ -372,7 +403,6 @@
 
               <a href="#booking" class="button-gold shrink-0 px-6 py-3.5">
                 <span>Plan your table</span>
-                <span>↗</span>
               </a>
             </div>
           </div>
@@ -405,7 +435,12 @@
               01
             </span>
 
-            <h3 class="mt-10 font-display text-3xl text-white">
+            <div
+              class="mt-8 flex h-12 w-12 items-center justify-center rounded-2xl border border-[#e1ca8a]/25 bg-[#c6a45b]/10 text-[#e1ca8a]">
+              <i class="fa-solid fa-fire-flame-curved"></i>
+            </div>
+
+            <h3 class="mt-6 font-display text-3xl text-white">
               Fireside evenings
             </h3>
 
@@ -422,7 +457,12 @@
               02
             </span>
 
-            <h3 class="mt-10 font-display text-3xl text-white">
+            <div
+              class="mt-8 flex h-12 w-12 items-center justify-center rounded-2xl border border-[#e1ca8a]/25 bg-[#c6a45b]/10 text-[#e1ca8a]">
+              <i class="fa-solid fa-star"></i>
+            </div>
+
+            <h3 class="mt-6 font-display text-3xl text-white">
               Skyward sleep
             </h3>
 
@@ -439,7 +479,12 @@
               03
             </span>
 
-            <h3 class="mt-10 font-display text-3xl text-white">
+            <div
+              class="mt-8 flex h-12 w-12 items-center justify-center rounded-2xl border border-[#e1ca8a]/25 bg-[#c6a45b]/10 text-[#e1ca8a]">
+              <i class="fa-solid fa-mug-hot"></i>
+            </div>
+
+            <h3 class="mt-6 font-display text-3xl text-white">
               Tea country mornings
             </h3>
 
@@ -456,9 +501,15 @@
     <section id="booking" class="relative overflow-hidden bg-[#07110d] py-24 sm:py-32">
       <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_100%,rgba(198,164,91,.14),transparent_34%)]"></div>
 
-      <div class="relative mx-auto max-w-5xl px-6 lg:px-10">
+      <div class="relative mx-auto max-w-6xl px-6 lg:px-10">
         <div class="reveal text-center">
-          <p class="text-[10px] font-semibold uppercase tracking-[.28em] text-[#e1ca8a]">
+          <div
+            class="booking-live-badge mx-auto inline-flex items-center gap-2 rounded-full border border-[#e1ca8a]/25 bg-[#c6a45b]/10 px-4 py-2 text-[9px] font-semibold uppercase tracking-[.18em] text-[#e1ca8a]">
+            <span class="booking-live-dot"></span>
+            Live stay estimate
+          </div>
+
+          <p class="mt-5 text-[10px] font-semibold uppercase tracking-[.28em] text-[#e1ca8a]">
             Start your stay
           </p>
 
@@ -468,83 +519,205 @@
           </h2>
 
           <p class="mx-auto mt-5 max-w-xl text-sm leading-7 text-white/65">
-            Choose your dates and preferred dome. This demonstration form
-            generates a stay request; connect it to your backend or email
-            service when you are ready.
+            Select your dates, guests and preferred dome. Your estimated
+            highland stay total updates instantly.
           </p>
         </div>
 
-        <form id="bookingForm" class="glass-dark reveal mt-12 rounded-[2rem] p-5 sm:rounded-[2.5rem] sm:p-8" novalidate>
-          <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            <label class="block">
-              <span class="mb-2 block text-[10px] font-semibold uppercase tracking-[.16em] text-white/60">
-                Check-in
-              </span>
+        <div class="mt-12 grid items-start gap-6 lg:grid-cols-[1.15fr_.85fr]">
+          <!-- Booking Form -->
+          <form id="bookingForm" class="glass-dark reveal rounded-[2rem] p-5 sm:rounded-[2.5rem] sm:p-8" novalidate>
+            <div class="mb-7 flex items-center justify-between gap-4">
+              <div>
+                <p class="text-[10px] font-semibold uppercase tracking-[.2em] text-[#e1ca8a]">
+                  Stay preferences
+                </p>
 
-              <input id="checkIn" class="booking-input" type="date" required />
-            </label>
+                <h3 class="mt-2 font-display text-3xl text-white">
+                  Build your retreat
+                </h3>
+              </div>
 
-            <label class="block">
-              <span class="mb-2 block text-[10px] font-semibold uppercase tracking-[.16em] text-white/60">
-                Check-out
-              </span>
+              <div
+                class="flex h-12 w-12 items-center justify-center rounded-2xl border border-[#e1ca8a]/25 bg-[#c6a45b]/10 text-[#e1ca8a]">
+                <i class="fa-solid fa-calendar-check text-lg"></i>
+              </div>
+            </div>
 
-              <input id="checkOut" class="booking-input" type="date" required />
-            </label>
+            <div class="grid gap-4 sm:grid-cols-2">
+              <label class="booking-field">
+                <span class="booking-label">
+                  <i class="fa-regular fa-calendar"></i>
+                  Check-in
+                </span>
 
-            <label class="block">
-              <span class="mb-2 block text-[10px] font-semibold uppercase tracking-[.16em] text-white/60">
-                Guests
-              </span>
+                <input id="checkIn" class="booking-input" type="date" required />
+              </label>
 
-              <select id="guests" class="booking-input">
-                <option value="2">2 guests</option>
-                <option value="1">1 guest</option>
-                <option value="3">3 guests</option>
-              </select>
-            </label>
+              <label class="booking-field">
+                <span class="booking-label">
+                  <i class="fa-regular fa-calendar-check"></i>
+                  Check-out
+                </span>
 
-            <label class="block">
-              <span class="mb-2 block text-[10px] font-semibold uppercase tracking-[.16em] text-white/60">
-                Preferred dome
-              </span>
+                <input id="checkOut" class="booking-input" type="date" required />
+              </label>
 
-              <select id="bookingSuite" class="booking-input">
-                <option value="Celestial Stargazer Dome">
-                  Celestial Stargazer
-                </option>
+              <label class="booking-field">
+                <span class="booking-label">
+                  <i class="fa-solid fa-users"></i>
+                  Guests
+                </span>
 
-                <option value="Misty Valley Dome">
-                  Misty Valley
-                </option>
+                <select id="guests" class="booking-input">
+                  <option value="1">1 guest</option>
+                  <option value="2" selected>2 guests</option>
+                  <option value="3">3 guests</option>
+                  <option value="4">4 guests</option>
+                </select>
+              </label>
 
-                <option value="Highland Horizon Dome">
-                  Highland Horizon
-                </option>
-              </select>
-            </label>
-          </div>
+              <label class="booking-field">
+                <span class="booking-label">
+                  <i class="fa-solid fa-igloo"></i>
+                  Preferred dome
+                </span>
 
-          <div class="mt-5 grid gap-4 sm:grid-cols-[1fr_auto] sm:items-end">
-            <label class="block">
-              <span class="mb-2 block text-[10px] font-semibold uppercase tracking-[.16em] text-white/60">
-                Email address
-              </span>
+                <select id="bookingSuite" class="booking-input">
+                  <option value="Celestial Stargazer Dome">
+                    Celestial Stargazer
+                  </option>
 
-              <input id="email" class="booking-input" type="email" placeholder="you@example.com" required />
-            </label>
+                  <option value="Misty Valley Dome">
+                    Misty Valley
+                  </option>
 
-            <button class="button-gold min-h-[47px] px-7 py-3.5" type="submit">
+                  <option value="Highland Horizon Dome">
+                    Highland Horizon
+                  </option>
+                </select>
+              </label>
+            </div>
+
+            <div class="mt-5">
+              <label class="booking-field">
+                <span class="booking-label">
+                  <i class="fa-regular fa-envelope"></i>
+                  Email address
+                </span>
+
+                <input id="email" class="booking-input" type="email" placeholder="you@gmail.com" required />
+              </label>
+            </div>
+
+            <div class="mt-6 rounded-2xl border border-[#e1ca8a]/15 bg-black/10 p-4">
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-circle-info mt-0.5 text-[#e1ca8a]"></i>
+
+                <p class="text-xs leading-6 text-white/55">
+                  The estimate includes the dome rate, additional guest charge
+                  where applicable, and a 10% service charge.
+                </p>
+              </div>
+            </div>
+
+            <button class="button-gold mt-7 min-h-[52px] w-full px-7 py-3.5" type="submit">
               <span>Check availability</span>
-              <span>↗</span>
+              <i class="fa-solid fa-arrow-right"></i>
             </button>
-          </div>
+          </form>
 
-          <p class="mt-4 text-center text-[10px] leading-5 text-white/45">
-            Concept website demo — submitting does not create a real reservation
-            or process a payment.
-          </p>
-        </form>
+          <!-- Live Price Summary -->
+          <aside class="booking-summary-card reveal rounded-[2rem] p-6 sm:rounded-[2.5rem] sm:p-8">
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <p class="text-[10px] font-semibold uppercase tracking-[.2em] text-[#e1ca8a]">
+                  Your stay estimate
+                </p>
+
+                <h3 id="summaryDomeName" class="mt-2 font-display text-3xl leading-none text-white">
+                  Celestial Stargazer Dome
+                </h3>
+              </div>
+
+            </div>
+
+            <div class="mt-8 space-y-4">
+              <div class="booking-summary-row">
+                <span>
+                  <i class="fa-regular fa-moon"></i>
+                  Nights
+                </span>
+
+                <strong id="summaryNights">2 nights</strong>
+              </div>
+
+              <div class="booking-summary-row">
+                <span>
+                  <i class="fa-solid fa-users"></i>
+                  Guests
+                </span>
+
+                <strong id="summaryGuests">2 guests</strong>
+              </div>
+
+              <div class="booking-summary-row">
+                <span>
+                  <i class="fa-solid fa-bed"></i>
+                  Dome rate
+                </span>
+
+                <strong id="summaryRate">LKR 155,000 / night</strong>
+              </div>
+            </div>
+
+            <div class="booking-price-breakdown mt-7">
+              <div class="booking-price-row">
+                <span id="summaryAccommodationLabel">
+                  Accommodation
+                </span>
+
+                <strong id="summaryAccommodation">LKR 310,000</strong>
+              </div>
+
+              <div class="booking-price-row">
+                <span>Additional guests</span>
+
+                <strong id="summaryGuestCharge">LKR 0</strong>
+              </div>
+
+              <div class="booking-price-row">
+                <span>Service charge (10%)</span>
+
+                <strong id="summaryServiceCharge">LKR 31,000</strong>
+              </div>
+            </div>
+
+            <div class="booking-total-panel mt-7">
+              <p class="text-[10px] font-semibold uppercase tracking-[.18em] text-white/55">
+                Estimated total
+              </p>
+
+              <p id="summaryTotal" class="booking-total-number mt-2 font-display text-5xl leading-none text-[#e1ca8a]">
+                LKR 341,000
+              </p>
+
+              <p id="summaryPerGuest" class="mt-3 text-xs leading-6 text-white/55">
+                Approximately LKR 170,500 per guest
+              </p>
+            </div>
+
+            <div class="mt-6 flex items-center gap-3 border-t border-[#e1ca8a]/15 pt-5">
+              <div class="flex h-9 w-9 items-center justify-center rounded-full bg-[#c6a45b]/10 text-[#e1ca8a]">
+                <i class="fa-solid fa-shield-heart text-sm"></i>
+              </div>
+
+              <p class="text-[10px] leading-5 text-white/45">
+                Secure estimate. Final confirmation is subject to availability.
+              </p>
+            </div>
+          </aside>
+        </div>
       </div>
     </section>
 
@@ -569,13 +742,13 @@
         </div>
 
         <div class="reveal flex flex-wrap gap-3 lg:justify-end">
-          <a href="mailto:crystalpeak@igloos.lk" class="button-outline">
-            crystalpeak@igloos.lk
+          <a href="mailto:hello@crystalpeakigloos.lk" class="button-outline">
+            <i class="fa-regular fa-envelope"></i>
+            hello@crystalpeakigloos.lk
           </a>
 
           <a href="#booking" class="button-gold px-6 py-3.5">
             <span>Reserve a stay</span>
-            <span>↗</span>
           </a>
         </div>
       </div>
@@ -601,38 +774,136 @@
     </div>
   </footer>
 
-  <!-- Booking Modal -->
+  <!-- Enhanced Reservation Modal -->
   <div class="modal fade" id="bookingModal" tabindex="-1" aria-labelledby="bookingModalTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-sm">
-      <div class="modal-content p-2">
-        <div class="modal-body p-5 text-center sm:p-6">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content booking-modal-content p-2">
+        <div class="modal-body p-5 sm:p-8">
           <button type="button" class="btn-close btn-close-white float-end" data-bs-dismiss="modal"
             aria-label="Close"></button>
 
-          <div
-            class="mx-auto flex h-14 w-14 items-center justify-center rounded-full border border-[#e1ca8a]/40 bg-[#c6a45b]/15 font-display text-3xl text-[#e1ca8a]">
-            ✦
+          <div class="text-center">
+            <div class="booking-confirm-icon mx-auto flex h-16 w-16 items-center justify-center rounded-full">
+              <i class="fa-solid fa-check"></i>
+            </div>
+
+            <p class="mt-5 text-[10px] font-semibold uppercase tracking-[.22em] text-[#e1ca8a]">
+              Stay estimate prepared
+            </p>
+
+            <h3 id="bookingModalTitle" class="mt-2 font-display text-4xl leading-none text-white sm:text-5xl">
+              Your highland pause awaits.
+            </h3>
+
+            <p class="mx-auto mt-4 max-w-xl text-sm leading-7 text-white/65">
+              Your selected stay details are ready. Save your reference number
+              for this demonstration reservation request.
+            </p>
           </div>
 
-          <p class="mt-5 text-[10px] font-semibold uppercase tracking-[.22em] text-[#e1ca8a]">
-            Stay request received
-          </p>
+          <div class="booking-reference-card mt-7 rounded-[1.75rem] p-5 text-center sm:p-6">
+            <p class="text-[10px] font-semibold uppercase tracking-[.2em] text-white/55">
+              Reservation reference
+            </p>
 
-          <h3 id="bookingModalTitle" class="mt-2 font-display text-4xl leading-none text-white">
-            Your highland pause begins here.
-          </h3>
+            <p id="modalReference" class="mt-2 font-display text-4xl tracking-[0.12em] text-[#e1ca8a] sm:text-5xl">
+              0000-CSD
+            </p>
 
-          <p id="bookingModalText" class="mt-4 text-sm leading-7 text-white/65"></p>
+            <button id="copyReferenceButton" type="button"
+              class="mt-3 inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[.16em] text-white/60 transition hover:text-[#e1ca8a]">
+              <i class="fa-regular fa-copy"></i>
+              Copy reference
+            </button>
+          </div>
 
-          <button type="button" class="button-gold mt-6 w-full px-5 py-3.5" data-bs-dismiss="modal">
-            <span>Continue exploring</span>
-          </button>
+          <div class="mt-7 grid gap-4 sm:grid-cols-2">
+            <div class="modal-detail-card">
+              <span>
+                <i class="fa-solid fa-igloo"></i>
+                Dome
+              </span>
+
+              <strong id="modalDome">Celestial Stargazer Dome</strong>
+            </div>
+
+            <div class="modal-detail-card">
+              <span>
+                <i class="fa-regular fa-calendar-days"></i>
+                Stay dates
+              </span>
+
+              <strong id="modalDates">Oct 14, 2026 – Oct 16, 2026</strong>
+            </div>
+
+            <div class="modal-detail-card">
+              <span>
+                <i class="fa-regular fa-moon"></i>
+                Duration
+              </span>
+
+              <strong id="modalNights">2 nights</strong>
+            </div>
+
+            <div class="modal-detail-card">
+              <span>
+                <i class="fa-solid fa-users"></i>
+                Guests
+              </span>
+
+              <strong id="modalGuests">2 guests</strong>
+            </div>
+          </div>
+
+          <div class="mt-6 rounded-[1.75rem] border border-[#e1ca8a]/20 bg-black/15 p-5 sm:p-6">
+            <div class="booking-price-row">
+              <span>Accommodation</span>
+              <strong id="modalAccommodation">LKR 310,000</strong>
+            </div>
+
+            <div class="booking-price-row">
+              <span>Additional guests</span>
+              <strong id="modalGuestCharge">LKR 0</strong>
+            </div>
+
+            <div class="booking-price-row">
+              <span>Service charge</span>
+              <strong id="modalServiceCharge">LKR 31,000</strong>
+            </div>
+
+            <div class="mt-5 border-t border-[#e1ca8a]/20 pt-5">
+              <div class="flex items-end justify-between gap-4">
+                <div>
+                  <p class="text-[10px] uppercase tracking-[.18em] text-white/55">
+                    Estimated total
+                  </p>
+
+                  <p id="modalTotal" class="mt-2 font-display text-4xl leading-none text-[#e1ca8a]">
+                    LKR 341,000
+                  </p>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-7 flex flex-col gap-3 sm:flex-row">
+            <button type="button" class="button-outline w-full" data-bs-dismiss="modal">
+              <i class="fa-solid fa-arrow-left"></i>
+              Continue exploring
+            </button>
+
+            <button id="modalReserveButton" type="button" class="button-gold w-full px-5 py-3.5">
+              <span>Save request</span>
+              <i class="fa-solid fa-bookmark"></i>
+            </button>
+          </div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Toast notification -->
+  <!-- Toast -->
   <div id="toast"
     class="fixed bottom-6 left-1/2 z-[60] rounded-full border border-[#e1ca8a]/25 bg-[#10291e]/95 px-5 py-3 text-center text-xs text-white shadow-glass backdrop-blur-xl">
   </div>
@@ -640,442 +911,7 @@
   <!-- Bootstrap JavaScript -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 
-  <script>
-    /* =========================
-       MENU HIGHLIGHTS DATA
-    ========================== */
-    const menuData = {
-      starters: {
-        label: "Starters",
-        introduction:
-          "Begin with warming highland flavours, garden herbs and carefully prepared local ingredients.",
-        items: [
-          {
-            name: "Nuwara Eliya Garlic Herb Soup",
-            description:
-              "Warm roasted garlic broth with fresh forest herbs and buttered croutons.",
-            price: "LKR 1,600"
-          },
-          {
-            name: "Highland Green Broccoli & Almond Salad",
-            description:
-              "Blanched garden broccoli tossed with toasted almond flakes and citrus dressing.",
-            price: "LKR 2,000"
-          },
-          {
-            name: "Lemongrass Beef Salad",
-            description:
-              "Thinly sliced marinated beef with sesame seeds, local greens and chilli-lime dressing.",
-            price: "LKR 2,000"
-          }
-        ]
-      },
-
-      mains: {
-        label: "Mains",
-        introduction:
-          "Comforting highland plates prepared with rich sauces, fresh vegetables and Sri Lankan character.",
-        items: [
-          {
-            name: "Pattipola Beef Tenderloin",
-            description:
-              "Pan-seared tenderloin served over garlic mash, buttered green beans and rich meat jus.",
-            price: "LKR 4,800"
-          },
-          {
-            name: "Chef’s Special Grilled Mountain Fish",
-            description:
-              "Fresh local catch grilled with garlic, fresh lemon juice and mild garden spices.",
-            price: "LKR 3,200"
-          }
-        ]
-      },
-
-      desserts: {
-        label: "Desserts",
-        introduction:
-          "A gentle finish inspired by Nuwara Eliya strawberries, local honey and warm spice.",
-        items: [
-          {
-            name: "Highland Strawberry Cheesecake",
-            description:
-              "Velvety cream cheese on a buttery biscuit base, topped with fresh Nuwara Eliya strawberry coulis.",
-            price: "LKR 5,500"
-          },
-          {
-            name: "Highland Honey & Vanilla Panna Cotta",
-            description:
-              "Silky vanilla bean panna cotta drizzled with raw local forest honey.",
-            price: "LKR 2,900"
-          }
-        ]
-      }
-    };
-
-    const menuPanel = document.getElementById("menuPanel");
-    const menuCategoryButtons = document.querySelectorAll(
-      "[data-menu-category]"
-    );
-
-    function renderMenu(category) {
-      const menu = menuData[category];
-
-      if (!menu || !menuPanel) return;
-
-      menuPanel.classList.remove("menu-panel");
-
-      /* Restarts menu panel reveal animation */
-      void menuPanel.offsetWidth;
-
-      menuPanel.classList.add("menu-panel");
-
-      menuPanel.innerHTML = `
-        <div class="mb-5 flex items-start justify-between gap-5">
-          <div>
-            <p class="text-[10px] font-semibold uppercase tracking-[.22em] text-[#e1ca8a]">
-              ${menu.label}
-            </p>
-
-            <p class="mt-3 max-w-lg text-sm leading-7 text-white/60">
-              ${menu.introduction}
-            </p>
-          </div>
-
-          <span class="font-display text-3xl italic text-[#e1ca8a]">
-            ${String(menu.items.length).padStart(2, "0")}
-          </span>
-        </div>
-
-        <div>
-          ${menu.items
-          .map(
-            (item) => `
-                <article class="menu-item">
-                  <div class="flex items-start justify-between gap-5">
-                    <div>
-                      <h4 class="menu-item-title">
-                        ${item.name}
-                      </h4>
-
-                      <p class="menu-item-description mt-2 max-w-xl">
-                        ${item.description}
-                      </p>
-                    </div>
-
-                    <span class="menu-item-price">
-                      ${item.price}
-                    </span>
-                  </div>
-                </article>
-              `
-          )
-          .join("")}
-        </div>
-
-        <div class="mt-5 flex items-center gap-3 border-t border-[#e1ca8a]/15 pt-5 text-[10px] uppercase tracking-[.16em] text-white/40">
-          <span class="h-1.5 w-1.5 rounded-full bg-[#c6a45b]"></span>
-          Seasonal availability
-        </div>
-      `;
-    }
-
-    menuCategoryButtons.forEach((button) => {
-      button.addEventListener("click", () => {
-        menuCategoryButtons.forEach((item) => {
-          item.classList.remove("active");
-        });
-
-        button.classList.add("active");
-        renderMenu(button.dataset.menuCategory);
-      });
-    });
-
-    renderMenu("starters");
-
-    /* =========================
-       DOME SUITE DATA
-    ========================== */
-    const suites = {
-      stargazer: {
-        title: "Celestial Stargazer Dome",
-        label: "Signature dome",
-        price: "From LKR 155,000 / night",
-        image: "assets/dome-resort.jpeg",
-        description:
-          "A glass-canopy retreat for starlit evenings. Settle beneath the dome apex, warm your hands by the fire and look out over a sleeping highland landscape.",
-        facts: [
-          "King bed beneath glass",
-          "Private cedar soaking ritual",
-          "Warm interior lounge"
-        ]
-      },
-
-      valley: {
-        title: "Misty Valley Dome",
-        label: "Valley-facing suite",
-        price: "From LKR 170,500 / night",
-        image: "assets/misty-valley.jpeg",
-        description:
-          "Face the western valley as cloud banks gather across the tea slopes. A private lounge and curved panorama make the changing weather part of your stay.",
-        facts: [
-          "Wide mist-valley view",
-          "Slow breakfast on deck",
-          "Rainfall bathing space"
-        ]
-      },
-
-      horizon: {
-        title: "Highland Horizon Dome",
-        label: "Private crest stay",
-        price: "From LKR 186,000 / night",
-        image: "assets/Highland-Horizon.jpeg",
-        description:
-          "Created for complete quiet. This elevated dome pairs expansive horizon views with a secluded deck, fireside warmth and thoughtful hosting.",
-        facts: [
-          "Most secluded position",
-          "Extended private deck",
-          "Fireside evening setup"
-        ]
-      }
-    };
-
-    const suiteContent = document.getElementById("suiteContent");
-
-    function renderSuite(key) {
-      const suite = suites[key];
-
-      suiteContent.innerHTML = `
-        <div class="image-wrap relative min-h-[390px] overflow-hidden rounded-[2rem] border border-[#e1ca8a]/20 sm:min-h-[520px] sm:rounded-[2.75rem]">
-          <img
-            class="image-zoom absolute inset-0 h-full w-full object-cover"
-            src="${suite.image}"
-            alt="${suite.title}"
-          />
-
-          <div class="absolute inset-0 bg-gradient-to-t from-[#07110d]/85 via-[#07110d]/15 to-transparent"></div>
-
-          <div class="absolute bottom-7 left-7 right-7 flex items-end justify-between gap-4">
-            <div>
-              <p class="text-[10px] uppercase tracking-[.2em] text-[#e1ca8a]">
-                ${suite.label}
-              </p>
-
-              <h3 class="mt-2 font-display text-4xl leading-none text-white sm:text-5xl">
-                ${suite.title}
-              </h3>
-            </div>
-
-            <span class="hidden rounded-full border border-white/20 bg-black/20 px-3 py-2 text-[9px] uppercase tracking-[.15em] text-white backdrop-blur-md sm:block">
-              Private stay
-            </span>
-          </div>
-        </div>
-
-        <div class="glass-dark flex flex-col rounded-[2rem] p-7 sm:p-9">
-          <p class="text-[10px] font-semibold uppercase tracking-[.22em] text-[#e1ca8a]">
-            The details
-          </p>
-
-          <p class="mt-5 text-sm leading-8 text-white/70">
-            ${suite.description}
-          </p>
-
-          <div class="mt-7">
-            ${suite.facts
-          .map(
-            (fact) => `
-                  <div class="feature-line flex items-center gap-3 py-3.5 text-sm text-white/80">
-                    <span class="h-1.5 w-1.5 shrink-0 rounded-full bg-[#c6a45b]"></span>
-                    ${fact}
-                  </div>
-                `
-          )
-          .join("")}
-          </div>
-
-          <div class="mt-auto pt-8">
-            <p class="text-[10px] uppercase tracking-[.16em] text-white/45">
-              Indicative stay rate
-            </p>
-
-            <p class="mt-1 font-display text-3xl text-[#e1ca8a]">
-              ${suite.price}
-            </p>
-
-            <button
-              class="button-gold mt-6 w-full px-5 py-3.5"
-              type="button"
-              onclick="selectSuite('${suite.title}')"
-            >
-              <span>Choose this dome</span>
-              <span>↗</span>
-            </button>
-          </div>
-        </div>
-      `;
-    }
-
-    document.querySelectorAll("[data-suite]").forEach((button) => {
-      button.addEventListener("click", () => {
-        document.querySelectorAll("[data-suite]").forEach((item) => {
-          item.classList.remove("active");
-        });
-
-        button.classList.add("active");
-        renderSuite(button.dataset.suite);
-      });
-    });
-
-    renderSuite("stargazer");
-
-    function selectSuite(name) {
-      document.getElementById("bookingSuite").value = name;
-      document.getElementById("booking").scrollIntoView({
-        behavior: "smooth",
-        block: "center"
-      });
-
-      showToast(name + " selected for your stay request.");
-    }
-
-    /* =========================
-       MOBILE MENU
-    ========================== */
-    const menuButton = document.getElementById("menuButton");
-    const mobileMenu = document.getElementById("mobileMenu");
-    const menuOpenIcon = document.getElementById("menuOpenIcon");
-    const menuCloseIcon = document.getElementById("menuCloseIcon");
-
-    menuButton.addEventListener("click", () => {
-      const open = !mobileMenu.classList.contains("hidden");
-
-      mobileMenu.classList.toggle("hidden", open);
-      menuOpenIcon.classList.toggle("hidden", !open);
-      menuCloseIcon.classList.toggle("hidden", open);
-
-      menuButton.setAttribute("aria-expanded", String(!open));
-      document.body.classList.toggle("menu-open", !open);
-    });
-
-    mobileMenu.querySelectorAll("a").forEach((link) => {
-      link.addEventListener("click", () => {
-        menuButton.click();
-      });
-    });
-
-    /* =========================
-       SCROLL REVEAL
-    ========================== */
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      {threshold: 0.14}
-    );
-
-    document.querySelectorAll(".reveal").forEach((element) => {
-      observer.observe(element);
-    });
-
-    /* =========================
-       BOOKING FORM
-    ========================== */
-    const today = new Date();
-
-    const formatDate = (date) => {
-      return date.toISOString().split("T")[0];
-    };
-
-    const inDate = new Date(today);
-    inDate.setDate(today.getDate() + 14);
-
-    const outDate = new Date(inDate);
-    outDate.setDate(inDate.getDate() + 2);
-
-    const checkIn = document.getElementById("checkIn");
-    const checkOut = document.getElementById("checkOut");
-
-    checkIn.min = formatDate(today);
-    checkOut.min = formatDate(today);
-
-    checkIn.value = formatDate(inDate);
-    checkOut.value = formatDate(outDate);
-
-    checkIn.addEventListener("change", () => {
-      const selected = new Date(checkIn.value);
-
-      selected.setDate(selected.getDate() + 1);
-
-      checkOut.min = formatDate(selected);
-
-      if (
-        !checkOut.value ||
-        new Date(checkOut.value) <= new Date(checkIn.value)
-      ) {
-        checkOut.value = formatDate(selected);
-      }
-    });
-
-    const bookingModal = new bootstrap.Modal(
-      document.getElementById("bookingModal")
-    );
-
-    document
-      .getElementById("bookingForm")
-      .addEventListener("submit", (event) => {
-        event.preventDefault();
-
-        const email = document.getElementById("email");
-
-        if (!event.currentTarget.checkValidity()) {
-          event.currentTarget.classList.add("was-validated");
-          email.focus();
-          return;
-        }
-
-        const suite = document.getElementById("bookingSuite").value;
-
-        const start = new Date(checkIn.value + "T00:00:00");
-        const end = new Date(checkOut.value + "T00:00:00");
-
-        const nights = Math.max(
-          1,
-          Math.round((end - start) / 86400000)
-        );
-
-        document.getElementById("bookingModalText").textContent =
-          `We have prepared a demonstration request for ${nights} night${nights > 1 ? "s" : ""
-          } in the ${suite}. In a live system, this is where availability and payment confirmation would continue.`;
-
-        bookingModal.show();
-      });
-
-    /* =========================
-       TOAST MESSAGE
-    ========================== */
-    let toastTimeout;
-
-    function showToast(message) {
-      const toast = document.getElementById("toast");
-
-      toast.textContent = message;
-      toast.classList.add("show");
-
-      clearTimeout(toastTimeout);
-
-      toastTimeout = setTimeout(() => {
-        toast.classList.remove("show");
-      }, 3200);
-    }
-
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Your External JavaScript -->
   <script src="index.js"></script>
 </body>
 
