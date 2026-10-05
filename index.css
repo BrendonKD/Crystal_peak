@@ -574,8 +574,8 @@ body.menu-open {
   align-items: center;
   gap: 0.55rem;
   min-width: 0;
-  overflow-wrap: break-word; /* was anywhere */
-  word-break: normal; /* was implicitly break-all via anywhere */
+  overflow-wrap: break-word;
+  word-break: normal;
 }
 
 .booking-summary-row span i {
@@ -842,22 +842,55 @@ body.menu-open {
     }
 }
 
-.modal-content.booking-modal-content,
-.booking-modal-content {
+/* ===== mobile stacking for booking modal - prevents overlap ===== */
+.modal-content.booking-modal-content {
   word-break: normal !important;
   overflow-wrap: normal !important;
-  min-width: 0;
 }
 
-.booking-modal-content .booking-price-row span,
-.booking-modal-content .booking-summary-row span {
-  overflow-wrap: normal !important;
-  word-break: normal !important;
-  white-space: normal;
-  min-width: 0;
+/* Desktop keeps side-by-side */
+.booking-modal-content .booking-price-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.5rem 0.75rem;
 }
 
-/* keep price on one line on the right */
-.booking-modal-content .booking-price-row strong {
-  word-break: keep-all !important;
+/* --- On small phones: stack label -> price on next line --- */
+@media (max-width: 480px) {
+  #bookingModal .modal-dialog {
+    margin: 0.5rem;
+    max-width: calc(100% - 1rem);
+  }
+
+  .booking-modal-content .modal-body {
+    padding: 1.25rem !important; 
+  }
+
+  .booking-modal-content .booking-price-row {
+    grid-template-columns: 1fr;
+    gap: 0.2rem;
+    padding: 0.6rem 0;
+    align-items: flex-start;
+  }
+
+  .booking-modal-content .booking-price-row span {
+    font-size: 0.7rem;
+    color: rgba(255,255,255,0.55);
+    white-space: normal;
+    word-break: normal;
+    overflow-wrap: normal;
+  }
+
+  /* Price on second line */
+  .booking-modal-content .booking-price-row strong {
+    white-space: normal;
+    word-break: keep-all;
+    text-align: left; 
+    justify-self: start;
+    font-size: 0.88rem;
+    color: #fff;
+    padding-left: 0.1rem;
+  }
+
 }
