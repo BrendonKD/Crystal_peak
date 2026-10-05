@@ -188,8 +188,8 @@ const suites = {
   horizon: {
     title: "Highland Horizon Dome",
     label: "Private crest stay",
-    price: "From LKR 186,000 / night",
-    rate: 186000,
+    price: "From LKR 165,000 / night",
+    rate: 165000,
     image: "assets/Highland-Horizon.jpeg",
     description:
       "Created for complete quiet. This elevated dome pairs expansive horizon views with a secluded deck, fireside warmth and thoughtful hosting.",
@@ -306,7 +306,7 @@ const bookingRates = {
   },
 
   "Highland Horizon Dome": {
-    rate: 186000,
+    rate: 165000,
     initials: "HHD"
   }
 };

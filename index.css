@@ -8,6 +8,40 @@
   --muted: #96a49a;
 }
 
+html {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+img,
+svg,
+video,
+canvas {
+    display: block;
+    max-width: 100%;
+}
+
+button,
+input,
+select,
+textarea {
+    max-width: 100%;
+}
+
+.container,
+.container-fluid,
+section {
+    width: 100%;
+    max-width: 100%;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -523,32 +557,41 @@ body.menu-open {
 
 .booking-summary-row,
 .booking-price-row {
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
   align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
+  column-gap: 0.75rem;
+  width: 100%;
+  min-width: 0;
   color: rgba(255, 255, 255, 0.62);
   font-size: 0.78rem;
+  line-height: 1.35;
 }
 
 .booking-summary-row span,
 .booking-price-row span {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   gap: 0.55rem;
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 
 .booking-summary-row span i {
+  flex: 0 0 0.9rem;
   width: 0.9rem;
   color: var(--gold-soft);
 }
 
 .booking-summary-row strong,
 .booking-price-row strong {
+  min-width: max-content;
   color: #ffffff;
   font-size: 0.76rem;
   font-weight: 600;
+  line-height: 1.35;
   text-align: right;
+  white-space: nowrap;
 }
 
 .booking-price-breakdown {
@@ -751,4 +794,49 @@ body.menu-open {
     scroll-behavior: auto !important;
     transition-duration: 0.01ms !important;
   }
+}
+
+@media (max-width: 640px) {
+    .booking-summary-card {
+        width: 100%;
+        max-width: 100%;
+        margin-inline: auto;
+        padding: 1rem !important;
+        border-radius: 1.5rem;
+    }
+
+    .booking-summary-row,
+    .booking-price-row {
+        grid-template-columns: minmax(0, 1fr) auto;
+        column-gap: 0.5rem;
+        font-size: 0.72rem;
+    }
+
+    .booking-summary-row strong,
+    .booking-price-row strong {
+        font-size: 0.72rem;
+        white-space: nowrap;
+    }
+
+    .booking-price-breakdown {
+        gap: 0.75rem;
+        padding: 1rem 0;
+    }
+
+    .booking-total-panel {
+        padding: 1rem;
+        border-radius: 1.25rem;
+    }
+
+    .booking-total-number {
+        font-size: clamp(2.4rem, 13vw, 4rem) !important;
+        line-height: 0.95;
+        white-space: nowrap;
+    }
+
+    .booking-summary-card .button-gold,
+    .booking-summary-card .button-outline {
+        width: 100%;
+        min-height: 3.25rem;
+    }
 }
