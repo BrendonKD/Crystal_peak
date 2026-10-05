@@ -1,655 +1,446 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+
+  <!-- Required for correct mobile scaling -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <meta name="description"
-    content="Crystal Peak Igloos — a conceptual eco-luxury dome retreat in Pattipola, Sri Lanka." />
+    content="Crystal Peak Igloos — a conceptual eco-luxury dome retreat in Pattipola, Sri Lanka.">
 
   <title>Crystal Peak Igloos | Pattipola, Sri Lanka</title>
 
   <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Manrope:wght@400;500;600;700&display=swap"
-    rel="stylesheet" />
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
 
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
   <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-  <!-- Font Awesome Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Tailwind Custom Configuration -->
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            peak: {
-              night: "#07110d",
-              forest: "#10291e",
-              pine: "#183a2a",
-              moss: "#55745b",
-              gold: "#c6a45b",
-              goldSoft: "#e1ca8a",
-              mist: "#d9ded6",
-              muted: "#96a49a"
-            }
-          },
-          fontFamily: {
-            display: ["Cormorant Garamond", "serif"],
-            sans: ["Manrope", "sans-serif"]
-          },
-          borderRadius: {
-            "4xl": "2.5rem",
-            "5xl": "3.25rem"
-          },
-          boxShadow: {
-            glass: "0 18px 70px rgba(0,0,0,.35)",
-            gold: "0 14px 42px rgba(198,164,91,.20)"
-          }
-        }
-      }
-    };
-  </script>
-
-  <!-- Your External CSS -->
-  <link rel="stylesheet" href="index.css" />
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <!--
-    REQUIRED IMAGE STRUCTURE
 
-    assets/
-    ├── logo.jpeg
-    ├── dome-resort.jpeg
-    ├── landscape.jpeg
-    ├── tea-table.jpeg
-    ├── misty-valley.jpeg
-    └── Highland-Horizon.jpeg
-  -->
+  <!-- ================================
+         NAVIGATION
+    ================================= -->
 
-  <!-- Navigation -->
-  <header class="fixed inset-x-0 top-0 z-50 px-4 pt-4 sm:pt-5">
-    <nav class="liquid-glass mx-auto flex max-w-7xl items-center justify-between rounded-full px-4 py-2.5 sm:px-5">
-      <a href="#home" class="flex min-w-0 items-center gap-3 text-decoration-none">
-        <img src="assets/logo.jpeg" alt="Crystal Peak Igloos logo"
-          class="h-11 w-11 rounded-full object-cover ring-1 ring-[#e1ca8a]/40" />
+  <header class="site-header">
+    <nav class="site-nav container-fluid px-4 px-lg-5">
 
-        <span class="hidden min-w-0 sm:block">
-          <span class="block truncate font-display text-lg font-semibold leading-none tracking-wide text-white">
-            Crystal Peak
-          </span>
+      <a href="#home" class="brand">
+        <span class="brand-mark">
+          <i class="fa-solid fa-mountain-sun"></i>
+        </span>
 
-          <span class="mt-1 block text-[8px] uppercase tracking-[.24em] text-[#e1ca8a]">
-            Igloos · Pattipola
-          </span>
+        <span class="brand-text">
+          Crystal Peak
+          <small>Igloos</small>
         </span>
       </a>
 
-      <div class="hidden items-center gap-6 lg:flex">
-        <a class="nav-link-custom" href="#story">Story</a>
-        <a class="nav-link-custom" href="#domes">Domes</a>
-        <a class="nav-link-custom" href="#tea">Tea & Table</a>
-        <a class="nav-link-custom" href="#experiences">Experiences</a>
-        <a class="nav-link-custom" href="#contact">Location</a>
+      <div class="desktop-nav">
+        <a href="#story" class="nav-link-custom">Story</a>
+        <a href="#domes" class="nav-link-custom">Domes</a>
+        <a href="#table" class="nav-link-custom">Tea Table</a>
+        <a href="#experiences" class="nav-link-custom">Experiences</a>
+        <a href="#booking" class="nav-link-custom">Reserve</a>
       </div>
 
-      <div class="flex items-center gap-2">
-        <a href="#booking" class="button-gold px-4 py-2.5 sm:px-5">
-          <span>Reserve</span>
-        </a>
-
-        <button id="menuButton"
-          class="liquid-glass flex h-10 w-10 items-center justify-center rounded-full text-white lg:hidden"
-          type="button" aria-label="Open navigation" aria-expanded="false">
-          <i id="menuOpenIcon" class="fa-solid fa-bars text-sm"></i>
-          <i id="menuCloseIcon" class="fa-solid fa-xmark hidden text-lg"></i>
-        </button>
-      </div>
+      <button id="menuButton" class="mobile-menu-button" type="button" aria-label="Open navigation menu"
+        aria-expanded="false">
+        <i id="menuOpenIcon" class="fa-solid fa-bars"></i>
+        <i id="menuCloseIcon" class="fa-solid fa-xmark hidden"></i>
+      </button>
     </nav>
 
-    <!-- Mobile Navigation -->
-    <div id="mobileMenu" class="liquid-glass mx-auto mt-3 hidden max-w-7xl rounded-[2rem] p-5 lg:hidden">
-      <div class="grid grid-cols-2 gap-3 text-center">
-        <a class="nav-link-custom rounded-2xl bg-white/5 py-3" href="#story">
-          Story
-        </a>
-
-        <a class="nav-link-custom rounded-2xl bg-white/5 py-3" href="#domes">
-          Domes
-        </a>
-
-        <a class="nav-link-custom rounded-2xl bg-white/5 py-3" href="#tea">
-          Tea & Table
-        </a>
-
-        <a class="nav-link-custom rounded-2xl bg-white/5 py-3" href="#experiences">
-          Experiences
-        </a>
-
-        <a class="nav-link-custom col-span-2 rounded-2xl bg-white/5 py-3" href="#contact">
-          Location & Contact
-        </a>
-      </div>
+    <div id="mobileMenu" class="mobile-menu hidden">
+      <a href="#story" class="nav-link-custom">Story</a>
+      <a href="#domes" class="nav-link-custom">Domes</a>
+      <a href="#table" class="nav-link-custom">Tea Table</a>
+      <a href="#experiences" class="nav-link-custom">Experiences</a>
+      <a href="#booking" class="nav-link-custom">Reserve</a>
     </div>
   </header>
 
-  <main>
-    <!-- Hero -->
-    <section id="home" class="relative min-h-screen overflow-hidden">
-      <div class="absolute inset-0">
-        <img src="assets/dome-resort.jpeg" alt="Crystal Peak Igloos above the misty Central Highlands"
-          class="h-full w-full object-cover object-center" />
+  <main id="home">
 
-        <div class="absolute inset-0 bg-[#07110d]/42"></div>
+    <!-- ================================
+             HERO
+        ================================= -->
 
-        <div class="absolute inset-0 bg-gradient-to-t from-[#07110d] via-[#07110d]/28 to-[#07110d]/12"></div>
+    <section class="hero-section">
+      <div class="hero-overlay"></div>
+      <div class="mist-layer"></div>
 
-        <div class="absolute inset-0 bg-[radial-gradient(circle_at_75%_18%,rgba(225,202,138,.2),transparent_30%)]">
-        </div>
+      <div class="container hero-content">
+        <p class="eyebrow reveal">
+          Pattipola · Central Highlands · Sri Lanka
+        </p>
 
-        <div class="mist-layer"></div>
-      </div>
+        <h1 class="hero-title font-display reveal reveal-delay">
+          Above the mist,<br>
+          <em>closer to the stars.</em>
+        </h1>
 
-      <div class="relative z-10 mx-auto flex min-h-screen max-w-7xl items-end px-6 pb-20 pt-40 sm:px-10 lg:pb-24">
-        <div class="max-w-3xl">
-          <p class="mb-6 flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[.3em] text-[#e1ca8a]">
-            <span class="h-px w-10 bg-[#e1ca8a]"></span>
-            Pattipola · Central Highlands · Sri Lanka
-          </p>
+        <p class="hero-description reveal reveal-delay">
+          A slow, elevated escape shaped by geodesic glass,
+          warming fires, Ceylon tea rituals and the changing mist
+          of Sri Lanka's highlands.
+        </p>
 
-          <h1 class="font-display text-5xl leading-[.88] text-white sm:text-7xl lg:text-[6rem]">
-            A sanctuary<br />
-            <em class="font-normal gold-text">above the clouds.</em>
-          </h1>
+        <div class="hero-actions reveal reveal-delay">
+          <a href="#domes" class="button-gold">
+            <span>Explore the domes</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
 
-          <p class="mt-7 max-w-xl text-sm leading-7 text-white/75 sm:text-base sm:leading-8">
-            A slow, elevated escape shaped by geodesic glass, warming fires,
-            Ceylon tea rituals and the changing mist of Sri Lanka’s highlands.
-          </p>
-
-          <div class="mt-9 flex flex-wrap gap-3">
-            <a href="#domes" class="button-gold px-6 py-3.5">
-              <span>Explore the domes</span>
-            </a>
-
-            <a href="#story" class="button-outline">
-              Discover our story
-              <span>↓</span>
-            </a>
-          </div>
-        </div>
-
-        <div class="absolute bottom-9 right-8 hidden text-right lg:block">
-          <p class="text-[9px] uppercase tracking-[.25em] text-white/55">
-            A highland state of mind
-          </p>
-
-          <p class="mt-2 font-display text-xl italic text-[#e1ca8a]">
-            Mist, tea and starlight
-          </p>
+          <a href="#story" class="button-outline">
+            Discover our story
+          </a>
         </div>
       </div>
     </section>
 
-    <!-- Story -->
-    <section id="story" class="relative overflow-hidden bg-[#07110d] py-24 sm:py-32">
-      <div class="mx-auto grid max-w-7xl items-center gap-14 px-6 lg:grid-cols-[.9fr_1.1fr] lg:px-10">
-        <div class="reveal">
-          <p class="text-[10px] font-semibold uppercase tracking-[.28em] text-[#e1ca8a]">
-            The sanctuary
-          </p>
+    <!-- ================================
+             STORY
+        ================================= -->
 
-          <h2 class="mt-5 max-w-xl font-display text-5xl leading-[.95] text-white sm:text-6xl">
-            Where the forest floor remains
-            <em class="font-normal text-[#e1ca8a]">undisturbed.</em>
+    <section id="story" class="content-section">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">A highland state of mind</p>
+
+          <h2 class="section-title font-display">
+            Mist, tea<br>
+            <em>and starlight.</em>
           </h2>
 
-          <p class="mt-7 max-w-lg text-sm leading-8 text-white/65">
-            Crystal Peak Igloos is a hospitality concept inspired by
-            Pattipola’s cool air, cloud forest atmosphere and tea country calm.
-            Every stay is designed around quiet luxury: warm interiors,
-            expansive views and time that feels unhurried.
+          <p class="section-description">
+            Crystal Peak Igloos is a hospitality concept inspired
+            by Pattipola's cool air, cloud forest atmosphere and
+            tea country calm.
           </p>
-
-          <div
-            class="mt-9 flex flex-wrap gap-x-7 gap-y-4 text-[10px] font-semibold uppercase tracking-[.18em] text-white/60">
-            <span class="flex items-center gap-2">
-              <span class="h-1.5 w-1.5 rounded-full bg-[#c6a45b]"></span>
-              Geodesic stays
-            </span>
-
-            <span class="flex items-center gap-2">
-              <span class="h-1.5 w-1.5 rounded-full bg-[#c6a45b]"></span>
-              Highland table
-            </span>
-
-            <span class="flex items-center gap-2">
-              <span class="h-1.5 w-1.5 rounded-full bg-[#c6a45b]"></span>
-              Slow rituals
-            </span>
-          </div>
         </div>
 
-        <div
-          class="image-wrap reveal reveal-delay relative overflow-hidden rounded-[2.5rem] border border-[#e1ca8a]/15 shadow-glass sm:rounded-[3.25rem]">
-          <img src="assets/landscape.jpeg" alt="Dome sanctuary landscape in Pattipola"
-            class="image-zoom h-[420px] w-full object-cover sm:h-[540px]" />
-
-          <div class="absolute inset-0 bg-gradient-to-t from-[#07110d]/75 via-transparent to-transparent"></div>
-
-          <div class="absolute bottom-7 left-7 right-7 flex items-end justify-between text-white">
-            <p class="max-w-[15rem] font-display text-2xl leading-none italic">
-              A place to listen to the rain on glass.
+        <div class="story-grid">
+          <article class="glass-dark story-card reveal">
+            <i class="fa-solid fa-leaf story-icon"></i>
+            <h3 class="font-display">The sanctuary</h3>
+            <p>
+              Every stay is designed around quiet luxury:
+              warm interiors, expansive views and time that
+              feels unhurried.
             </p>
+          </article>
 
-            <span
-              class="rounded-full border border-white/25 bg-black/20 px-3 py-2 text-[9px] uppercase tracking-[.16em] backdrop-blur-md">
-              Pattipola
-            </span>
-          </div>
+          <article class="glass-dark story-card reveal reveal-delay">
+            <i class="fa-solid fa-mountain story-icon"></i>
+            <h3 class="font-display">Geodesic stays</h3>
+            <p>
+              Sleep beneath a curved glass canopy and let the
+              mountain weather become part of the room.
+            </p>
+          </article>
+
+          <article class="glass-dark story-card reveal reveal-delay">
+            <i class="fa-solid fa-mug-hot story-icon"></i>
+            <h3 class="font-display">Highland table</h3>
+            <p>
+              Discover local produce, Ceylon tea rituals and
+              slow fireside dining.
+            </p>
+          </article>
         </div>
       </div>
     </section>
 
-    <!-- Domes -->
-    <section id="domes" class="relative overflow-hidden bg-[#10291e] py-24 sm:py-32">
-      <div class="absolute -left-24 top-12 h-80 w-80 rounded-full bg-[#c6a45b]/10 blur-3xl"></div>
+    <!-- ================================
+             DOMES
+        ================================= -->
 
-      <div class="relative mx-auto max-w-7xl px-6 lg:px-10">
-        <div class="reveal max-w-2xl">
-          <p class="text-[10px] font-semibold uppercase tracking-[.28em] text-[#e1ca8a]">
-            Dome stays
-          </p>
+    <section id="domes" class="content-section dark-section">
+      <div class="container">
 
-          <h2 class="mt-4 font-display text-5xl leading-[.95] text-white sm:text-6xl">
-            Three ways to meet the
-            <em class="font-normal text-[#e1ca8a]">horizon.</em>
+        <div class="section-heading reveal">
+          <p class="eyebrow">Pattipola dome stays</p>
+
+          <h2 class="section-title font-display">
+            Three ways to<br>
+            <em>meet the horizon.</em>
           </h2>
 
-          <p class="mt-5 text-sm leading-7 text-white/65">
-            Choose a private retreat shaped for stargazing, mist watching or
-            complete highland seclusion.
+          <p class="section-description">
+            Choose a private retreat shaped for stargazing,
+            mist watching or complete highland seclusion.
           </p>
         </div>
 
-        <div class="reveal mt-9 flex flex-wrap gap-2">
-          <button class="suite-tab active" type="button" data-suite="stargazer">
+        <div class="suite-tabs reveal">
+          <button type="button" class="suite-tab active" data-suite="stargazer">
             Celestial Stargazer
           </button>
 
-          <button class="suite-tab" type="button" data-suite="valley">
+          <button type="button" class="suite-tab" data-suite="valley">
             Misty Valley
           </button>
 
-          <button class="suite-tab" type="button" data-suite="horizon">
+          <button type="button" class="suite-tab" data-suite="horizon">
             Highland Horizon
           </button>
         </div>
 
-        <div id="suiteContent" class="suite-content mt-8 grid items-stretch gap-7 lg:grid-cols-[1.2fr_.8fr]"></div>
+        <div id="suiteContent" class="suite-content"></div>
       </div>
     </section>
 
-    <!-- Tea & Table -->
-    <section id="tea" class="relative overflow-hidden bg-[#07110d] py-24 sm:py-32">
-      <div class="absolute inset-0 bg-[radial-gradient(circle_at_15%_30%,rgba(198,164,91,.10),transparent_28%)]"></div>
+    <!-- ================================
+             TEA TABLE
+        ================================= -->
 
-      <div class="relative mx-auto max-w-7xl px-6 lg:px-10">
-        <div class="grid items-start gap-14 lg:grid-cols-[.8fr_1.2fr]">
-          <div class="reveal lg:sticky lg:top-32">
-            <p class="text-[10px] font-semibold uppercase tracking-[.28em] text-[#e1ca8a]">
-              The Grand Glass Restaurant Dome
-            </p>
+    <section id="table" class="content-section">
+      <div class="container">
 
-            <h2 class="mt-5 font-display text-5xl leading-[.92] text-white sm:text-6xl">
-              Highland
-              <em class="font-normal text-[#e1ca8a]">gastronomy.</em>
-            </h2>
+        <div class="section-heading reveal">
+          <p class="eyebrow">The Grand Glass Restaurant Dome</p>
 
-            <p class="mt-7 max-w-md text-sm leading-8 text-white/65">
-              Every plate at Crystal Peak is inspired by the flavours of Sri
-              Lanka’s highlands: fresh mountain herbs, Nuwara Eliya produce,
-              local spices, garden vegetables and the warmth of a slow
-              fireside table.
-            </p>
+          <h2 class="section-title font-display">
+            Highland<br>
+            <em>gastronomy.</em>
+          </h2>
 
-            <div class="mt-8 overflow-hidden rounded-[2rem] border border-[#e1ca8a]/15">
-              <img src="assets/tea-table.jpeg" alt="Highland tea and dining experience at Crystal Peak Igloos"
-                class="h-[280px] w-full object-cover transition duration-700 hover:scale-105" />
-
-              <div class="border-t border-[#e1ca8a]/15 bg-[#10291e]/70 p-5 backdrop-blur-xl">
-                <p class="text-[10px] font-semibold uppercase tracking-[.2em] text-[#e1ca8a]">
-                  Our table philosophy
-                </p>
-
-                <p class="mt-3 font-display text-2xl leading-tight text-white">
-                  Local character,
-                  <em class="text-[#e1ca8a]">quietly refined.</em>
-                </p>
-              </div>
-            </div>
-
-            <div
-              class="mt-8 flex flex-wrap gap-x-6 gap-y-3 text-[10px] font-semibold uppercase tracking-[.16em] text-white/55">
-              <span class="flex items-center gap-2">
-                <span class="h-1.5 w-1.5 rounded-full bg-[#c6a45b]"></span>
-                Highland produce
-              </span>
-
-              <span class="flex items-center gap-2">
-                <span class="h-1.5 w-1.5 rounded-full bg-[#c6a45b]"></span>
-                Ceylon tea
-              </span>
-
-              <span class="flex items-center gap-2">
-                <span class="h-1.5 w-1.5 rounded-full bg-[#c6a45b]"></span>
-                Fireside dining
-              </span>
-            </div>
-          </div>
-
-          <div class="reveal reveal-delay">
-            <div class="mb-7 flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
-              <div>
-                <p class="text-[10px] font-semibold uppercase tracking-[.28em] text-[#e1ca8a]">
-                  Menu highlights
-                </p>
-
-                <h3 class="mt-3 font-display text-4xl leading-none text-white sm:text-5xl">
-                  From the kitchen
-                </h3>
-              </div>
-
-              <span
-                class="rounded-full border border-[#e1ca8a]/20 bg-white/[.04] px-4 py-2 text-[9px] uppercase tracking-[.17em] text-white/50">
-                Prices in LKR
-              </span>
-            </div>
-
-            <div class="mb-7 flex flex-wrap gap-2">
-              <button type="button" class="menu-category-button active" data-menu-category="starters">
-                Starters
-              </button>
-
-              <button type="button" class="menu-category-button" data-menu-category="mains">
-                Mains
-              </button>
-
-              <button type="button" class="menu-category-button" data-menu-category="desserts">
-                Desserts
-              </button>
-            </div>
-
-            <div id="menuPanel" class="menu-panel glass-dark rounded-[2rem] p-6 sm:rounded-[2.5rem] sm:p-9"></div>
-
-            <div
-              class="mt-7 flex flex-col gap-4 border-t border-[#e1ca8a]/15 pt-6 sm:flex-row sm:items-center sm:justify-between">
-              <p class="max-w-md text-xs leading-6 text-white/45">
-                Menus are shaped by the season, local availability and the mood
-                of the highlands. Please ask our host about vegetarian and
-                dietary options.
-              </p>
-
-              <a href="#booking" class="button-gold shrink-0 px-6 py-3.5">
-                <span>Plan your table</span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Experiences -->
-    <section id="experiences" class="relative overflow-hidden bg-[#183a2a] py-24 sm:py-32">
-      <div
-        class="absolute right-0 top-0 h-full w-1/2 bg-[radial-gradient(ellipse_at_top_right,rgba(198,164,91,.12),transparent_58%)]">
-      </div>
-
-      <div class="relative mx-auto max-w-7xl px-6 lg:px-10">
-        <div class="reveal mx-auto max-w-2xl text-center">
-          <p class="text-[10px] font-semibold uppercase tracking-[.28em] text-[#e1ca8a]">
-            Slow experiences
+          <p class="section-description">
+            Every plate is inspired by the flavours of Sri Lanka's
+            highlands: fresh mountain herbs, Nuwara Eliya produce,
+            local spices and garden vegetables.
           </p>
+        </div>
 
-          <h2 class="mt-4 font-display text-5xl leading-[.95] text-white sm:text-6xl">
-            Designed for the spaces
-            <em class="font-normal text-[#e1ca8a]">between plans.</em>
+        <div class="menu-tabs reveal">
+          <button type="button" class="menu-category-button active" data-menu-category="starters">
+            Starters
+          </button>
+
+          <button type="button" class="menu-category-button" data-menu-category="mains">
+            Mains
+          </button>
+
+          <button type="button" class="menu-category-button" data-menu-category="desserts">
+            Desserts
+          </button>
+        </div>
+
+        <div id="menuPanel" class="menu-panel reveal"></div>
+      </div>
+    </section>
+
+    <!-- ================================
+             EXPERIENCES
+        ================================= -->
+
+    <section id="experiences" class="content-section dark-section">
+      <div class="container">
+
+        <div class="section-heading reveal">
+          <p class="eyebrow">Slow experiences</p>
+
+          <h2 class="section-title font-display">
+            Designed for the<br>
+            <em>spaces between plans.</em>
           </h2>
         </div>
 
-        <div class="mt-14 grid gap-5 md:grid-cols-3">
-          <article
-            class="reveal rounded-[2rem] border border-white/10 bg-white/[.045] p-7 transition duration-500 hover:-translate-y-2 hover:border-[#e1ca8a]/35 hover:bg-white/[.075]">
-            <span class="font-display text-5xl italic text-[#e1ca8a]">
-              01
-            </span>
+        <div class="experience-grid">
 
-            <div
-              class="mt-8 flex h-12 w-12 items-center justify-center rounded-2xl border border-[#e1ca8a]/25 bg-[#c6a45b]/10 text-[#e1ca8a]">
-              <i class="fa-solid fa-fire-flame-curved"></i>
-            </div>
-
-            <h3 class="mt-6 font-display text-3xl text-white">
-              Fireside evenings
-            </h3>
-
-            <p class="mt-3 text-sm leading-7 text-white/60">
-              Settle beside a gentle flame while cool mountain air folds across
-              the valley below.
+          <article class="experience-card reveal">
+            <span class="experience-number">01</span>
+            <h3 class="font-display">Fireside evenings</h3>
+            <p>
+              Settle beside a gentle flame while cool mountain
+              air folds across the valley below.
             </p>
           </article>
 
-          <article
-            class="reveal rounded-[2rem] border border-white/10 bg-white/[.045] p-7 transition duration-500 hover:-translate-y-2 hover:border-[#e1ca8a]/35 hover:bg-white/[.075]"
-            style="transition-delay: 0.1s">
-            <span class="font-display text-5xl italic text-[#e1ca8a]">
-              02
-            </span>
-
-            <div
-              class="mt-8 flex h-12 w-12 items-center justify-center rounded-2xl border border-[#e1ca8a]/25 bg-[#c6a45b]/10 text-[#e1ca8a]">
-              <i class="fa-solid fa-star"></i>
-            </div>
-
-            <h3 class="mt-6 font-display text-3xl text-white">
-              Skyward sleep
-            </h3>
-
-            <p class="mt-3 text-sm leading-7 text-white/60">
-              Look through the dome’s glass canopy and let the night sky become
-              part of the room.
+          <article class="experience-card reveal reveal-delay">
+            <span class="experience-number">02</span>
+            <h3 class="font-display">Skyward sleep</h3>
+            <p>
+              Look through the dome's glass canopy and let the
+              night sky become part of the room.
             </p>
           </article>
 
-          <article
-            class="reveal rounded-[2rem] border border-white/10 bg-white/[.045] p-7 transition duration-500 hover:-translate-y-2 hover:border-[#e1ca8a]/35 hover:bg-white/[.075]"
-            style="transition-delay: 0.2s">
-            <span class="font-display text-5xl italic text-[#e1ca8a]">
-              03
-            </span>
-
-            <div
-              class="mt-8 flex h-12 w-12 items-center justify-center rounded-2xl border border-[#e1ca8a]/25 bg-[#c6a45b]/10 text-[#e1ca8a]">
-              <i class="fa-solid fa-mug-hot"></i>
-            </div>
-
-            <h3 class="mt-6 font-display text-3xl text-white">
-              Tea country mornings
-            </h3>
-
-            <p class="mt-3 text-sm leading-7 text-white/60">
-              Begin quietly with warm Ceylon tea, drifting mist and the soft
-              rhythm of the hills.
+          <article class="experience-card reveal reveal-delay">
+            <span class="experience-number">03</span>
+            <h3 class="font-display">Tea country mornings</h3>
+            <p>
+              Begin quietly with warm Ceylon tea, drifting mist
+              and the soft rhythm of the hills.
             </p>
           </article>
+
         </div>
       </div>
     </section>
 
-    <!-- Booking -->
-    <section id="booking" class="relative overflow-hidden bg-[#07110d] py-24 sm:py-32">
-      <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_100%,rgba(198,164,91,.14),transparent_34%)]"></div>
+    <!-- ================================
+             BOOKING
+        ================================= -->
 
-      <div class="relative mx-auto max-w-6xl px-6 lg:px-10">
-        <div class="reveal text-center">
-          <div
-            class="booking-live-badge mx-auto inline-flex items-center gap-2 rounded-full border border-[#e1ca8a]/25 bg-[#c6a45b]/10 px-4 py-2 text-[9px] font-semibold uppercase tracking-[.18em] text-[#e1ca8a]">
+    <section id="booking" class="content-section booking-section">
+      <div class="container">
+
+        <div class="section-heading reveal">
+          <div class="booking-live-badge">
             <span class="booking-live-dot"></span>
             Live stay estimate
           </div>
 
-          <p class="mt-5 text-[10px] font-semibold uppercase tracking-[.28em] text-[#e1ca8a]">
-            Start your stay
-          </p>
+          <p class="eyebrow">Start your stay</p>
 
-          <h2 class="mt-4 font-display text-5xl leading-[.95] text-white sm:text-6xl">
-            Find your place in the
-            <em class="font-normal text-[#e1ca8a]">mist.</em>
+          <h2 class="section-title font-display">
+            Find your place<br>
+            <em>in the mist.</em>
           </h2>
 
-          <p class="mx-auto mt-5 max-w-xl text-sm leading-7 text-white/65">
-            Select your dates, guests and preferred dome. Your estimated
-            highland stay total updates instantly.
+          <p class="section-description">
+            Select your dates, guests and preferred dome.
+            Your estimated highland stay total updates instantly.
           </p>
         </div>
 
-        <div class="mt-12 grid items-start gap-6 lg:grid-cols-[1.15fr_.85fr]">
-          <!-- Booking Form -->
-          <form id="bookingForm" class="glass-dark reveal rounded-[2rem] p-5 sm:rounded-[2.5rem] sm:p-8" novalidate>
-            <div class="mb-7 flex items-center justify-between gap-4">
+        <div class="booking-layout">
+
+          <!-- Booking form -->
+          <div class="booking-form-wrapper glass-dark reveal">
+            <div class="booking-form-header">
+              <p class="eyebrow">Stay preferences</p>
+              <h3 class="font-display">Build your retreat</h3>
+            </div>
+
+            <form id="bookingForm" novalidate>
+
+              <div class="booking-form-grid">
+
+                <div class="booking-field">
+                  <label class="booking-label" for="checkIn">
+                    <i class="fa-regular fa-calendar"></i>
+                    Check-in
+                  </label>
+
+                  <input id="checkIn" class="booking-input" type="date" required>
+                </div>
+
+                <div class="booking-field">
+                  <label class="booking-label" for="checkOut">
+                    <i class="fa-regular fa-calendar"></i>
+                    Check-out
+                  </label>
+
+                  <input id="checkOut" class="booking-input" type="date" required>
+                </div>
+
+                <div class="booking-field">
+                  <label class="booking-label" for="guests">
+                    <i class="fa-solid fa-users"></i>
+                    Guests
+                  </label>
+
+                  <select id="guests" class="booking-input" required>
+                    <option value="1">1 guest</option>
+                    <option value="2" selected>2 guests</option>
+                    <option value="3">3 guests</option>
+                    <option value="4">4 guests</option>
+                  </select>
+                </div>
+
+                <div class="booking-field">
+                  <label class="booking-label" for="bookingSuite">
+                    <i class="fa-solid fa-house"></i>
+                    Preferred dome
+                  </label>
+
+                  <select id="bookingSuite" class="booking-input" required>
+                    <option value="Celestial Stargazer Dome">
+                      Celestial Stargazer
+                    </option>
+
+                    <option value="Misty Valley Dome">
+                      Misty Valley
+                    </option>
+
+                    <option value="Highland Horizon Dome">
+                      Highland Horizon
+                    </option>
+                  </select>
+                </div>
+
+                <div class="booking-field booking-email-field">
+                  <label class="booking-label" for="email">
+                    <i class="fa-regular fa-envelope"></i>
+                    Email address
+                  </label>
+
+                  <input id="email" class="booking-input" type="email" placeholder="you@example.com" required>
+                </div>
+
+              </div>
+
+              <p class="booking-note">
+                The estimate includes the dome rate,
+                additional guest charge where applicable,
+                and a 10% service charge.
+              </p>
+
+              <button type="submit" class="button-gold booking-submit-button">
+                <span>Check availability</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </form>
+          </div>
+
+          <!-- Booking summary -->
+          <aside class="booking-summary-card reveal reveal-delay">
+
+            <div class="booking-summary-header">
+              <div class="booking-summary-icon">
+                <i class="fa-solid fa-mountain-sun"></i>
+              </div>
+
               <div>
-                <p class="text-[10px] font-semibold uppercase tracking-[.2em] text-[#e1ca8a]">
-                  Stay preferences
-                </p>
+                <p class="eyebrow">Your stay estimate</p>
 
-                <h3 class="mt-2 font-display text-3xl text-white">
-                  Build your retreat
-                </h3>
-              </div>
-
-              <div
-                class="flex h-12 w-12 items-center justify-center rounded-2xl border border-[#e1ca8a]/25 bg-[#c6a45b]/10 text-[#e1ca8a]">
-                <i class="fa-solid fa-calendar-check text-lg"></i>
-              </div>
-            </div>
-
-            <div class="grid gap-4 sm:grid-cols-2">
-              <label class="booking-field">
-                <span class="booking-label">
-                  <i class="fa-regular fa-calendar"></i>
-                  Check-in
-                </span>
-
-                <input id="checkIn" class="booking-input" type="date" required />
-              </label>
-
-              <label class="booking-field">
-                <span class="booking-label">
-                  <i class="fa-regular fa-calendar-check"></i>
-                  Check-out
-                </span>
-
-                <input id="checkOut" class="booking-input" type="date" required />
-              </label>
-
-              <label class="booking-field">
-                <span class="booking-label">
-                  <i class="fa-solid fa-users"></i>
-                  Guests
-                </span>
-
-                <select id="guests" class="booking-input">
-                  <option value="1">1 guest</option>
-                  <option value="2" selected>2 guests</option>
-                  <option value="3">3 guests</option>
-                  <option value="4">4 guests</option>
-                </select>
-              </label>
-
-              <label class="booking-field">
-                <span class="booking-label">
-                  <i class="fa-solid fa-igloo"></i>
-                  Preferred dome
-                </span>
-
-                <select id="bookingSuite" class="booking-input">
-                  <option value="Celestial Stargazer Dome">
-                    Celestial Stargazer
-                  </option>
-
-                  <option value="Misty Valley Dome">
-                    Misty Valley
-                  </option>
-
-                  <option value="Highland Horizon Dome">
-                    Highland Horizon
-                  </option>
-                </select>
-              </label>
-            </div>
-
-            <div class="mt-5">
-              <label class="booking-field">
-                <span class="booking-label">
-                  <i class="fa-regular fa-envelope"></i>
-                  Email address
-                </span>
-
-                <input id="email" class="booking-input" type="email" placeholder="you@gmail.com" required />
-              </label>
-            </div>
-
-            <div class="mt-6 rounded-2xl border border-[#e1ca8a]/15 bg-black/10 p-4">
-              <div class="flex items-start gap-3">
-                <i class="fa-solid fa-circle-info mt-0.5 text-[#e1ca8a]"></i>
-
-                <p class="text-xs leading-6 text-white/55">
-                  The estimate includes the dome rate, additional guest charge
-                  where applicable, and a 10% service charge.
-                </p>
-              </div>
-            </div>
-
-            <button class="button-gold mt-7 min-h-[52px] w-full px-7 py-3.5" type="submit">
-              <span>Check availability</span>
-              <i class="fa-solid fa-arrow-right"></i>
-            </button>
-          </form>
-
-          <!-- Live Price Summary -->
-          <aside class="booking-summary-card reveal rounded-[2rem] p-6 sm:rounded-[2.5rem] sm:p-8">
-            <div class="flex items-start justify-between gap-4">
-              <div>
-                <p class="text-[10px] font-semibold uppercase tracking-[.2em] text-[#e1ca8a]">
-                  Your stay estimate
-                </p>
-
-                <h3 id="summaryDomeName" class="mt-2 font-display text-3xl leading-none text-white">
+                <h3 id="summaryDomeName" class="font-display summary-dome-name">
                   Celestial Stargazer Dome
                 </h3>
               </div>
-
             </div>
 
-            <div class="mt-8 space-y-4">
+            <div class="booking-summary-list">
+
               <div class="booking-summary-row">
                 <span>
                   <i class="fa-regular fa-moon"></i>
                   Nights
                 </span>
 
-                <strong id="summaryNights">2 nights</strong>
+                <strong id="summaryNights">
+                  2 nights
+                </strong>
               </div>
 
               <div class="booking-summary-row">
@@ -658,182 +449,139 @@
                   Guests
                 </span>
 
-                <strong id="summaryGuests">2 guests</strong>
+                <strong id="summaryGuests">
+                  2 guests
+                </strong>
               </div>
 
               <div class="booking-summary-row">
                 <span>
-                  <i class="fa-solid fa-bed"></i>
+                  <i class="fa-solid fa-tag"></i>
                   Dome rate
                 </span>
 
-                <strong id="summaryRate">LKR 155,000 / night</strong>
+                <strong id="summaryRate">
+                  LKR 155,000 / night
+                </strong>
               </div>
+
             </div>
 
-            <div class="booking-price-breakdown mt-7">
+            <!-- Important: each price item is vertical -->
+            <div class="booking-price-breakdown">
+
               <div class="booking-price-row">
-                <span id="summaryAccommodationLabel">
+                <span id="summaryAccommodationLabel" class="booking-price-label">
                   Accommodation
                 </span>
 
-                <strong id="summaryAccommodation">LKR 310,000</strong>
+                <strong id="summaryAccommodation" class="booking-price-value">
+                  LKR 310,000
+                </strong>
               </div>
 
               <div class="booking-price-row">
-                <span>Additional guests</span>
+                <span class="booking-price-label">
+                  Additional guests
+                </span>
 
-                <strong id="summaryGuestCharge">LKR 0</strong>
+                <strong id="summaryGuestCharge" class="booking-price-value">
+                  LKR 0
+                </strong>
               </div>
 
               <div class="booking-price-row">
-                <span>Service charge (10%)</span>
+                <span class="booking-price-label">
+                  Service charge
+                </span>
 
-                <strong id="summaryServiceCharge">LKR 31,000</strong>
+                <strong id="summaryServiceCharge" class="booking-price-value">
+                  LKR 31,000
+                </strong>
               </div>
+
             </div>
 
-            <div class="booking-total-panel mt-7">
-              <p class="text-[10px] font-semibold uppercase tracking-[.18em] text-white/55">
-                Estimated total
-              </p>
+            <div class="booking-total-panel">
+              <p class="eyebrow">Estimated total</p>
 
-              <p id="summaryTotal" class="booking-total-number mt-2 font-display text-5xl leading-none text-[#e1ca8a]">
+              <div id="summaryTotal" class="booking-total-number font-display gold-text">
                 LKR 341,000
-              </p>
+              </div>
 
-              <p id="summaryPerGuest" class="mt-3 text-xs leading-6 text-white/55">
+              <p id="summaryPerGuest" class="booking-per-guest">
                 Approximately LKR 170,500 per guest
               </p>
             </div>
 
-            <div class="mt-6 flex items-center gap-3 border-t border-[#e1ca8a]/15 pt-5">
-              <div class="flex h-9 w-9 items-center justify-center rounded-full bg-[#c6a45b]/10 text-[#e1ca8a]">
-                <i class="fa-solid fa-shield-heart text-sm"></i>
-              </div>
+            <p class="booking-disclaimer">
+              Secure estimate. Final confirmation is subject
+              to availability.
+            </p>
 
-              <p class="text-[10px] leading-5 text-white/45">
-                Secure estimate. Final confirmation is subject to availability.
-              </p>
-            </div>
           </aside>
         </div>
       </div>
     </section>
 
-    <!-- Contact -->
-    <section id="contact" class="bg-[#10291e] py-20 sm:py-24">
-      <div class="mx-auto grid max-w-7xl gap-10 px-6 lg:grid-cols-[1fr_auto] lg:items-end lg:px-10">
-        <div class="reveal">
-          <p class="text-[10px] font-semibold uppercase tracking-[.28em] text-[#e1ca8a]">
-            Pattipola, Sri Lanka
-          </p>
-
-          <h2 class="mt-4 font-display text-5xl leading-[.95] text-white sm:text-6xl">
-            Come closer to the
-            <em class="font-normal text-[#e1ca8a]">cloud line.</em>
-          </h2>
-
-          <p class="mt-6 max-w-2xl text-sm leading-8 text-white/65">
-            A concept retreat inspired by Sri Lanka’s Central Highlands, tea
-            country character and the cloud-forest landscape surrounding
-            Pattipola and Horton Plains.
-          </p>
-        </div>
-
-        <div class="reveal flex flex-wrap gap-3 lg:justify-end">
-          <a href="mailto:hello@crystalpeakigloos.lk" class="button-outline">
-            <i class="fa-regular fa-envelope"></i>
-            hello@crystalpeakigloos.lk
-          </a>
-
-          <a href="#booking" class="button-gold px-6 py-3.5">
-            <span>Reserve a stay</span>
-          </a>
-        </div>
-      </div>
-    </section>
   </main>
 
-  <!-- Footer -->
-  <footer class="border-t border-white/10 bg-[#07110d] py-9">
-    <div
-      class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-5 px-6 text-center sm:flex-row sm:text-left lg:px-10">
-      <div class="flex items-center gap-3">
-        <img src="assets/logo.jpeg" alt="Crystal Peak Igloos logo"
-          class="h-9 w-9 rounded-full object-cover opacity-90" />
+  <!-- ================================
+         BOOKING MODAL
+    ================================= -->
 
-        <p class="text-[10px] uppercase tracking-[.18em] text-white/60">
-          Crystal Peak Igloos · Sri Lanka
-        </p>
-      </div>
-
-      <p class="text-[10px] leading-5 text-white/40">
-        © <span id="year"></span> Crystal Peak Igloos.
-      </p>
-    </div>
-  </footer>
-
-  <!-- Enhanced Reservation Modal -->
-  <div class="modal fade" id="bookingModal" tabindex="-1" aria-labelledby="bookingModalTitle" aria-hidden="true">
+  <div class="modal fade" id="bookingModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
-      <div class="modal-content booking-modal-content p-2">
-        <div class="modal-body p-5 sm:p-8">
-          <button type="button" class="btn-close btn-close-white float-end" data-bs-dismiss="modal"
-            aria-label="Close"></button>
+      <div class="modal-content booking-modal-content">
 
-          <div class="text-center">
-            <div class="booking-confirm-icon mx-auto flex h-16 w-16 items-center justify-center rounded-full">
-              <i class="fa-solid fa-check"></i>
-            </div>
+        <div class="modal-body">
 
-            <p class="mt-5 text-[10px] font-semibold uppercase tracking-[.22em] text-[#e1ca8a]">
-              Stay estimate prepared
-            </p>
-
-            <h3 id="bookingModalTitle" class="mt-2 font-display text-4xl leading-none text-white sm:text-5xl">
-              Your highland pause awaits.
-            </h3>
-
-            <p class="mx-auto mt-4 max-w-xl text-sm leading-7 text-white/65">
-              Your selected stay details are ready. Save your reference number
-              for this demonstration reservation request.
-            </p>
+          <div class="booking-confirm-icon">
+            <i class="fa-solid fa-check"></i>
           </div>
 
-          <div class="booking-reference-card mt-7 rounded-[1.75rem] p-5 text-center sm:p-6">
-            <p class="text-[10px] font-semibold uppercase tracking-[.2em] text-white/55">
-              Reservation reference
-            </p>
+          <p class="eyebrow">Crystal Peak Igloos</p>
 
-            <p id="modalReference" class="mt-2 font-display text-4xl tracking-[0.12em] text-[#e1ca8a] sm:text-5xl">
+          <h2 class="font-display modal-title">
+            Stay estimate prepared
+          </h2>
+
+          <p class="modal-description">
+            Your highland pause awaits. Save your reference number
+            for this demonstration reservation request.
+          </p>
+
+          <div class="booking-reference-card">
+            <span>Reservation reference</span>
+
+            <strong id="modalReference">
               0000-CSD
-            </p>
+            </strong>
 
-            <button id="copyReferenceButton" type="button"
-              class="mt-3 inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[.16em] text-white/60 transition hover:text-[#e1ca8a]">
+            <button id="copyReferenceButton" type="button" class="copy-reference-button">
               <i class="fa-regular fa-copy"></i>
               Copy reference
             </button>
           </div>
 
-          <div class="mt-7 grid gap-4 sm:grid-cols-2">
+          <div class="modal-detail-grid">
+
             <div class="modal-detail-card">
               <span>
-                <i class="fa-solid fa-igloo"></i>
+                <i class="fa-solid fa-house"></i>
                 Dome
               </span>
 
-              <strong id="modalDome">Celestial Stargazer Dome</strong>
+              <strong id="modalDome"></strong>
             </div>
 
             <div class="modal-detail-card">
               <span>
-                <i class="fa-regular fa-calendar-days"></i>
+                <i class="fa-regular fa-calendar"></i>
                 Stay dates
               </span>
 
-              <strong id="modalDates">Oct 14, 2026 – Oct 16, 2026</strong>
+              <strong id="modalDates"></strong>
             </div>
 
             <div class="modal-detail-card">
@@ -842,7 +590,7 @@
                 Duration
               </span>
 
-              <strong id="modalNights">2 nights</strong>
+              <strong id="modalNights"></strong>
             </div>
 
             <div class="modal-detail-card">
@@ -851,68 +599,72 @@
                 Guests
               </span>
 
-              <strong id="modalGuests">2 guests</strong>
+              <strong id="modalGuests"></strong>
             </div>
-          </div>
 
-          <div class="mt-6 rounded-[1.75rem] border border-[#e1ca8a]/20 bg-black/15 p-5 sm:p-6">
-            <div class="booking-price-row">
+            <div class="modal-detail-card">
               <span>Accommodation</span>
-              <strong id="modalAccommodation">LKR 310,000</strong>
+              <strong id="modalAccommodation"></strong>
             </div>
 
-            <div class="booking-price-row">
+            <div class="modal-detail-card">
               <span>Additional guests</span>
-              <strong id="modalGuestCharge">LKR 0</strong>
+              <strong id="modalGuestCharge"></strong>
             </div>
 
-            <div class="booking-price-row">
+            <div class="modal-detail-card">
               <span>Service charge</span>
-              <strong id="modalServiceCharge">LKR 31,000</strong>
+              <strong id="modalServiceCharge"></strong>
             </div>
 
-            <div class="mt-5 border-t border-[#e1ca8a]/20 pt-5">
-              <div class="flex items-end justify-between gap-4">
-                <div>
-                  <p class="text-[10px] uppercase tracking-[.18em] text-white/55">
-                    Estimated total
-                  </p>
-
-                  <p id="modalTotal" class="mt-2 font-display text-4xl leading-none text-[#e1ca8a]">
-                    LKR 341,000
-                  </p>
-                </div>
-
-              </div>
+            <div class="modal-detail-card">
+              <span>Estimated total</span>
+              <strong id="modalTotal"></strong>
             </div>
+
           </div>
 
-          <div class="mt-7 flex flex-col gap-3 sm:flex-row">
-            <button type="button" class="button-outline w-full" data-bs-dismiss="modal">
+          <div class="modal-actions">
+            <button type="button" class="button-outline" data-bs-dismiss="modal">
               <i class="fa-solid fa-arrow-left"></i>
               Continue exploring
             </button>
 
-            <button id="modalReserveButton" type="button" class="button-gold w-full px-5 py-3.5">
+            <button id="modalReserveButton" type="button" class="button-gold">
               <span>Save request</span>
               <i class="fa-solid fa-bookmark"></i>
             </button>
           </div>
+
         </div>
       </div>
     </div>
   </div>
 
   <!-- Toast -->
-  <div id="toast"
-    class="fixed bottom-6 left-1/2 z-[60] rounded-full border border-[#e1ca8a]/25 bg-[#10291e]/95 px-5 py-3 text-center text-xs text-white shadow-glass backdrop-blur-xl">
-  </div>
+  <div id="toast" class="toast-message" role="status"></div>
 
-  <!-- Bootstrap JavaScript -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <p class="eyebrow">Pattipola, Sri Lanka</p>
 
-  <!-- Your External JavaScript -->
-  <script src="index.js"></script>
+      <p class="footer-description">
+        Come closer to the cloud line.
+      </p>
+
+      <p class="footer-small">
+        © <span id="year"></span> Crystal Peak Igloos.
+        Concept hospitality experience.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Custom JS -->
+  <script src="script.js"></script>
 </body>
 
 </html>
