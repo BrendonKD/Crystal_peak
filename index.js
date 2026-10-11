@@ -205,15 +205,11 @@ const suiteContent = document.getElementById("suiteContent");
 
 function renderSuite(key) {
   const suite = suites[key];
-  const showPriceAndCTA = key !== "valley"; // your previous requirement
+  const showPriceAndCTA = key!== "valley";
 
   suiteContent.innerHTML = `
-    <div class="image-wrap relative overflow-hidden border border-[#e1ca8a]/20" style="min-height:390px;">
-      <img
-        class="image-zoom absolute inset-0 h-full w-full object-cover"
-        src="${suite.image}"
-        alt="${suite.title}"
-      />
+    <div class="image-wrap relative overflow-hidden border border-[#e1ca8a]/20" style="min-height:390px; border-radius:2rem; overflow:hidden;">
+      <img class="image-zoom absolute inset-0 h-full w-full object-cover" src="${suite.image}" alt="${suite.title}" />
       <div class="absolute inset-0 bg-gradient-to-t from-[#07110d]/85 via-[#07110d]/15 to-transparent"></div>
       <div class="absolute bottom-7 left-7 right-7 flex items-end justify-between gap-4">
         <div>
@@ -224,7 +220,7 @@ function renderSuite(key) {
       </div>
     </div>
 
-    <div class="glass-dark flex flex-col rounded- p-7 sm:p-9">
+    <div class="glass-dark flex flex-col p-7 sm:p-9" style="border-radius:2rem; overflow:hidden;">
       <p class="text- font-semibold uppercase tracking-[.22em] text-[#e1ca8a]">The details</p>
       <p class="mt-5 text-sm leading-8 text-white/70">${suite.description}</p>
       <div class="mt-7">
@@ -233,7 +229,7 @@ function renderSuite(key) {
             <span class="h-1.5 w-1.5 shrink-0 rounded-full bg-[#c6a45b]"></span>${fact}
           </div>`).join("")}
       </div>
-      ${showPriceAndCTA ? `
+      ${showPriceAndCTA? `
       <div class="mt-auto pt-8">
         <p class="text- uppercase tracking-[.16em] text-white/45">Indicative stay rate</p>
         <p class="mt-1 font-display text-3xl text-[#e1ca8a]">${suite.price}</p>

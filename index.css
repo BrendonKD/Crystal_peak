@@ -895,16 +895,26 @@ body.menu-open {
 
 }
 
-#suiteContent.image-wrap {
-  min-height: 390px;
-  border-radius: 2rem;
+/* --- FINAL FIX: domes mobile image + border-radius --- */
+#suiteContent >.image-wrap {
+  min-height: 390px!important;
+  border-radius: 2rem!important;
+  overflow: hidden!important;
+  isolation: isolate;
+  transform: translateZ(0);
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
+}
+#suiteContent >.glass-dark {
+  border-radius: 2rem!important;
+  overflow: hidden!important;
+  isolation: isolate;
 }
 @media (min-width: 640px) {
-  #suiteContent.image-wrap {
-    min-height: 520px;
-    border-radius: 2.75rem;
+  #suiteContent >.image-wrap {
+    min-height: 520px!important;
+    border-radius: 2.75rem!important;
   }
-}
-#suiteContent.image-wrap img {
-  display: block;
+  #suiteContent >.glass-dark {
+    border-radius: 2.5rem!important;
+  }
 }
