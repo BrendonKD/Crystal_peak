@@ -894,3 +894,17 @@ body.menu-open {
   }
 
 }
+
+#suiteContent.image-wrap {
+  min-height: 390px;
+  border-radius: 2rem;
+}
+@media (min-width: 640px) {
+  #suiteContent.image-wrap {
+    min-height: 520px;
+    border-radius: 2.75rem;
+  }
+}
+#suiteContent.image-wrap img {
+  display: block;
+}

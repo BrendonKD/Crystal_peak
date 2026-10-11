@@ -205,80 +205,42 @@ const suiteContent = document.getElementById("suiteContent");
 
 function renderSuite(key) {
   const suite = suites[key];
-  const showPriceAndCTA = key!== "valley";
+  const showPriceAndCTA = key !== "valley"; // your previous requirement
 
   suiteContent.innerHTML = `
-    <div class="image-wrap relative min-h- overflow-hidden rounded- border border-[#e1ca8a]/20 sm:min-h- sm:rounded-[2.75rem]">
+    <div class="image-wrap relative overflow-hidden border border-[#e1ca8a]/20" style="min-height:390px;">
       <img
         class="image-zoom absolute inset-0 h-full w-full object-cover"
         src="${suite.image}"
         alt="${suite.title}"
       />
-
       <div class="absolute inset-0 bg-gradient-to-t from-[#07110d]/85 via-[#07110d]/15 to-transparent"></div>
-
       <div class="absolute bottom-7 left-7 right-7 flex items-end justify-between gap-4">
         <div>
-          <p class="text- uppercase tracking-[.2em] text-[#e1ca8a]">
-            ${suite.label}
-          </p>
-
-          <h3 class="mt-2 font-display text-4xl leading-none text-white sm:text-5xl">
-            ${suite.title}
-          </h3>
+          <p class="text- uppercase tracking-[.2em] text-[#e1ca8a]">${suite.label}</p>
+          <h3 class="mt-2 font-display text-4xl leading-none text-white sm:text-5xl">${suite.title}</h3>
         </div>
-
-        <span class="hidden rounded-full border border-white/20 bg-black/20 px-3 py-2 text- uppercase tracking-[.15em] text-white backdrop-blur-md sm:block">
-          Private stay
-        </span>
+        <span class="hidden rounded-full border border-white/20 bg-black/20 px-3 py-2 text- uppercase tracking-[.15em] text-white backdrop-blur-md sm:block">Private stay</span>
       </div>
     </div>
 
     <div class="glass-dark flex flex-col rounded- p-7 sm:p-9">
-      <p class="text- font-semibold uppercase tracking-[.22em] text-[#e1ca8a]">
-        The details
-      </p>
-
-      <p class="mt-5 text-sm leading-8 text-white/70">
-        ${suite.description}
-      </p>
-
+      <p class="text- font-semibold uppercase tracking-[.22em] text-[#e1ca8a]">The details</p>
+      <p class="mt-5 text-sm leading-8 text-white/70">${suite.description}</p>
       <div class="mt-7">
-        ${suite.facts
-         .map(
-            (fact) => `
-              <div class="feature-line flex items-center gap-3 py-3.5 text-sm text-white/80">
-                <span class="h-1.5 w-1.5 shrink-0 rounded-full bg-[#c6a45b]"></span>
-                ${fact}
-              </div>
-            `
-          )
-         .join("")}
+        ${suite.facts.map(fact => `
+          <div class="feature-line flex items-center gap-3 py-3.5 text-sm text-white/80">
+            <span class="h-1.5 w-1.5 shrink-0 rounded-full bg-[#c6a45b]"></span>${fact}
+          </div>`).join("")}
       </div>
-
-      ${
-        showPriceAndCTA
-         ? `
+      ${showPriceAndCTA ? `
       <div class="mt-auto pt-8">
-        <p class="text- uppercase tracking-[.16em] text-white/45">
-          Indicative stay rate
-        </p>
-
-        <p class="mt-1 font-display text-3xl text-[#e1ca8a]">
-          ${suite.price}
-        </p>
-
-        <button
-          class="button-gold mt-6 w-full px-5 py-3.5"
-          type="button"
-          onclick="selectSuite('${suite.title}')"
-        >
+        <p class="text- uppercase tracking-[.16em] text-white/45">Indicative stay rate</p>
+        <p class="mt-1 font-display text-3xl text-[#e1ca8a]">${suite.price}</p>
+        <button class="button-gold mt-6 w-full px-5 py-3.5" type="button" onclick="selectSuite('${suite.title}')">
           <span>Choose this dome</span>
         </button>
-      </div>
-      `
-          : ``
-      }
+      </div>` : ``}
     </div>
   `;
 }
