@@ -156,11 +156,11 @@ renderMenu("starters");
 
 const suites = {
   stargazer: {
-    title: "Celestial Stargazer Dome",
+    title: "Celestial Family Dome",
     label: "Signature dome",
-    price: "From LKR 155,000 / night",
-    rate: 155000,
-    image: "assets/dome-resort.jpeg",
+    price: "From LKR 180,000 / night",
+    rate: 180000,
+    image: "assets/family-dome.jpg",
     description:
       "A glass-canopy retreat for starlit evenings. Settle beneath the dome apex, warm your hands by the fire and look out over a sleeping highland landscape.",
     facts: [
@@ -186,10 +186,10 @@ const suites = {
   },
 
   horizon: {
-    title: "Highland Horizon Dome",
+    title: "Celestial Dome Cabana",
     label: "Private crest stay",
-    price: "From LKR 165,000 / night",
-    rate: 165000,
+    price: "From LKR 150,000 / night",
+    rate: 150000,
     image: "assets/Highland-Horizon.jpeg",
     description:
       "Created for complete quiet. This elevated dome pairs expansive horizon views with a secluded deck, fireside warmth and thoughtful hosting.",
@@ -205,9 +205,10 @@ const suiteContent = document.getElementById("suiteContent");
 
 function renderSuite(key) {
   const suite = suites[key];
+  const showPriceAndCTA = key!== "valley";
 
   suiteContent.innerHTML = `
-    <div class="image-wrap relative min-h-[390px] overflow-hidden rounded-[2rem] border border-[#e1ca8a]/20 sm:min-h-[520px] sm:rounded-[2.75rem]">
+    <div class="image-wrap relative min-h- overflow-hidden rounded- border border-[#e1ca8a]/20 sm:min-h- sm:rounded-[2.75rem]">
       <img
         class="image-zoom absolute inset-0 h-full w-full object-cover"
         src="${suite.image}"
@@ -218,7 +219,7 @@ function renderSuite(key) {
 
       <div class="absolute bottom-7 left-7 right-7 flex items-end justify-between gap-4">
         <div>
-          <p class="text-[10px] uppercase tracking-[.2em] text-[#e1ca8a]">
+          <p class="text- uppercase tracking-[.2em] text-[#e1ca8a]">
             ${suite.label}
           </p>
 
@@ -227,14 +228,14 @@ function renderSuite(key) {
           </h3>
         </div>
 
-        <span class="hidden rounded-full border border-white/20 bg-black/20 px-3 py-2 text-[9px] uppercase tracking-[.15em] text-white backdrop-blur-md sm:block">
+        <span class="hidden rounded-full border border-white/20 bg-black/20 px-3 py-2 text- uppercase tracking-[.15em] text-white backdrop-blur-md sm:block">
           Private stay
         </span>
       </div>
     </div>
 
-    <div class="glass-dark flex flex-col rounded-[2rem] p-7 sm:p-9">
-      <p class="text-[10px] font-semibold uppercase tracking-[.22em] text-[#e1ca8a]">
+    <div class="glass-dark flex flex-col rounded- p-7 sm:p-9">
+      <p class="text- font-semibold uppercase tracking-[.22em] text-[#e1ca8a]">
         The details
       </p>
 
@@ -244,19 +245,22 @@ function renderSuite(key) {
 
       <div class="mt-7">
         ${suite.facts
-      .map(
-        (fact) => `
+         .map(
+            (fact) => `
               <div class="feature-line flex items-center gap-3 py-3.5 text-sm text-white/80">
                 <span class="h-1.5 w-1.5 shrink-0 rounded-full bg-[#c6a45b]"></span>
                 ${fact}
               </div>
             `
-      )
-      .join("")}
+          )
+         .join("")}
       </div>
 
+      ${
+        showPriceAndCTA
+         ? `
       <div class="mt-auto pt-8">
-        <p class="text-[10px] uppercase tracking-[.16em] text-white/45">
+        <p class="text- uppercase tracking-[.16em] text-white/45">
           Indicative stay rate
         </p>
 
@@ -272,6 +276,9 @@ function renderSuite(key) {
           <span>Choose this dome</span>
         </button>
       </div>
+      `
+          : ``
+      }
     </div>
   `;
 }
@@ -295,18 +302,14 @@ renderSuite("stargazer");
 ======================================== */
 
 const bookingRates = {
-  "Celestial Stargazer Dome": {
-    rate: 155000,
+  "Celestial Family Dome": {
+    rate: 180000,
     initials: "CSD"
   },
 
-  "Misty Valley Dome": {
-    rate: 170500,
-    initials: "MVD"
-  },
 
-  "Highland Horizon Dome": {
-    rate: 165000,
+  "Celestial Dome Cabana": {
+    rate: 150000,
     initials: "HHD"
   }
 };
